@@ -5,8 +5,6 @@ from pygame.locals import *
 import player
 from player import *
 
-import time
-
 clock = pygame.time.Clock()
 
 pygame.init()
@@ -34,18 +32,14 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT or event.key == ord('a'):
-                time.sleep(0.5)
                 player.control(-steps,0)
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
-                time.sleep(0.5)
                 player.control(steps,0)
         
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == ord('a'):
-                time.sleep(0.5)
                 player.control(steps, 0)
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
-                time.sleep(0.5)
                 player.control(-steps, 0)
         
 
