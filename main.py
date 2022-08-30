@@ -12,12 +12,14 @@ import sys
 
 class Game:
     def __init__(self):
+        SCREEN_WIDTH = 500
+        SCREEN_LENGTH = 800
         # Set up icon & caption
         playerIMG = pygame.image.load("imgs/player.png")
         pygame.display.set_caption("Space-Invader")
         pygame.display.set_icon(playerIMG)
         # Set up screen
-        self.screen = pygame.display.set_mode((500,800))
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_LENGTH))
         self.clock = pygame.time.Clock()
         self.mouse = pygame.mouse.set_visible(False)
         self.level = Level()

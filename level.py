@@ -2,6 +2,7 @@ import pygame
 
 from player import Player
 from enemy import Enemy
+from bullet import Bullet
 
 class Level:
     def __init__(self):
@@ -14,7 +15,7 @@ class Level:
 
         self.setup()
 
-    # Set up player
+    # Set up entities
     def setup(self):
         self.player = Player(self.sprites)
         self.enemy = Enemy(self.sprites)

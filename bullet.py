@@ -3,15 +3,12 @@ import pygame
 # Definint Bullet Object
 class Bullet(pygame.sprite.Sprite):
     # Constructor
-    def __init__(self,group):
+    def __init__(self,group,posX,posY):
         super().__init__(group)
-        # self.image = pygame.image.load() FIXME: Add img
-        self.pos = pygame.math.Vector2(self.rect.center)
-        self.direction = pygame.math.Vector2()
+        self.image = pygame.Surface((50,10))
+        self.image.fill((255,255,255))
+        self.rect = self.image.get_rect(center = (posX,posY))
 
-
-    def move(self):
-        print("FIXME: Add move()")
-        
+    # Move bullet in y-direction, 5 pixels
     def update(self):
-        self.move()
+        self.rect.y += 5
