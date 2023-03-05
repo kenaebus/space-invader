@@ -9,6 +9,11 @@ class Bullet(pygame.sprite.Sprite):
         self.image.fill((255,255,255))
         self.rect = self.image.get_rect(center = (posX,posY))
 
+    # Create Bullet
+    def createBullet(self):
+        # TODO: DRAW BULLET
+        print("Create bullet")
+
     # Move bullet in y-direction, 5 pixels
     def update(self):
         self.rect.y += 5

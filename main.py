@@ -2,31 +2,38 @@
 import pygame
 from pygame.locals import *
 # Import player class
-import player
-from player import *
+import playerManager
 # Import Level
 import level
-from level import Level
 # Import Sys
 import sys
 
+pygame.init()
+pygame.font.init()
+
 class Game:
     def __init__(self):
-        SCREEN_WIDTH = 500
-        SCREEN_LENGTH = 800
+
         # Set up icon & caption
-        playerIMG = pygame.image.load("imgs/player.png")
-        pygame.display.set_caption("Space-Invader")
+        playerIMG = pygame.image.load("imgs/playerSprite.png")
+        pygame.display.set_caption("Space-Invader by Makena Bustos")
         pygame.display.set_icon(playerIMG)
+
         # Set up screen
-        self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_LENGTH))
+
+        # Find player's screen info
+        infoObject = pygame.display.Info()
+        self.SCREEN_WIDTH = infoObject.current_w
+        self.SCREEN_LENGTH = infoObject.current_h
+
+        self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_LENGTH))
         self.clock = pygame.time.Clock()
         self.mouse = pygame.mouse.set_visible(False)
-        self.level = Level()
+        self.level = level.GameLevel()
 
     def run(self):
         backgroundIMG = pygame.image.load("imgs/spacebackground.jpg")
-        backgroundIMG = pygame.transform.scale(backgroundIMG,(800,800))
+        backgroundIMG = pygame.transform.scale(backgroundIMG,(self.SCREEN_WIDTH,self.SCREEN_LENGTH))
         
         fps = 60
         while True:
@@ -39,11 +46,12 @@ class Game:
             
             self.clock.tick(fps)
             self.screen.blit(backgroundIMG,[0,0])
-            # Set up level
             self.level.run()
-            pygame.display.update()
+        
+            pygame.display.update()  
 
 if __name__ == "__main__":
+
     game = Game()
     game.run()
 

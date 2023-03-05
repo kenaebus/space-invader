@@ -1,10 +1,9 @@
 import pygame
+from enemy import *
+from bullet import *
+from playerManager import *
 
-from player import Player
-from enemy import Enemy
-from bullet import Bullet
-
-class Level:
+class GameLevel:
     def __init__(self):
 
         # Display Surface
